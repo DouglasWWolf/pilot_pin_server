@@ -62,6 +62,15 @@ int main(int argc, char** argv)
     // Wait for the polling thread to discover the current state of the pilot-pin
     PollingThread.wait_for_initialization();
 
+    // If we're in simulation mode, spawn the SimServer
+    if (global.simulate)
+    {
+        cmd_server_t sim_params;
+        sim_params.port = conf.port + 1;
+        sim_params.verbose = false;
+        SimServer.start(&sim_params);
+    }
+
     // Start the command server
     MainServer.start(&server_params);
 

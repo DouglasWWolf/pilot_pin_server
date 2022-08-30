@@ -12,5 +12,8 @@ conf_t      conf;
 // The server
 CMainServer MainServer;
 
+// Server for simulation commands
+CSimServer  SimServer;
+
 // Thread that polls and reports on voltage state changes
 CPollingThread PollingThread;

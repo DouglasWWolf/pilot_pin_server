@@ -1,20 +1,17 @@
+
 //==========================================================================================================
-// demo_server.h - Defines a TCP command-line server
+// sim_server.h - Command line server for simulation functionality
 //==========================================================================================================
 #pragma once
 #include "cmd_server_base.h"
 
 
-
-class CMainServer : public CCmdServerBase
+class CSimServer : public CCmdServerBase
 {
 public:
 
     // Default constructor
-    CMainServer() : CCmdServerBase() {}
-
-    // This gets called when a client connects to the server socket
-    void    on_client_connect();
+    CSimServer() : CCmdServerBase() {}
 
 protected:
 
@@ -22,5 +19,5 @@ protected:
     void    handle_command();
 
     // These are the handlers for each specific command
-    bool    handle_voltageq();
+    bool    handle_voltage();
 };

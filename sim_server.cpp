@@ -1,46 +1,42 @@
+
 //==========================================================================================================
-// ppin_server.cpp - Implements a TCP command-line server
+// sim_server.cpp - TCP Server for the simulator
 //==========================================================================================================
 #include "globals.h"
 using namespace std;
 
 
 //==========================================================================================================
-// This gets called when a client connects
-//==========================================================================================================
-void CMainServer::on_client_connect()
-{
-    // Find the current state of the pilot pin
-    string current_state = PollingThread.get_state();
-
-    // Tell the newly connected client the state of the pilot-pin
-    sendf(".state %s\n", current_state.c_str());
-}
-//==========================================================================================================
-
-
-
-//==========================================================================================================
 // handle_command() - This gets called every time a command arrives on the server
 //==========================================================================================================
-void CMainServer::handle_command()
+void CSimServer::handle_command()
 {
     // Fetch the name of the command
     string cmd = m_line.get_first();
 
-    if      (cmd == "voltage?") handle_voltageq();
-    else sendf(".syntax\n");
+    if (cmd == "voltage" ) handle_voltage();
+    else fail_syntax();
 }
 //==========================================================================================================
 
 
 //==========================================================================================================
-// handle_voltageq() - Posts an event with the most recent voltage readings
+// handle_voltage() - Specifies the simulated voltage
 //==========================================================================================================
-bool CMainServer::handle_voltageq()
+bool CSimServer::handle_voltage()
 {
-    sendf(".voltage %1.2f %1.2f\n", global.voltage1, global.voltage2);
-    return true;
+    double v1, v2;
+
+    // Fetch the command parameters as floating point values
+    if (!m_line.get_next(&v1)) return fail_syntax();
+    if (!m_line.get_next(&v2)) return fail_syntax();
+
+    // Fill in the simulated voltages
+    global.sim_voltage1 = (float) v1;
+    global.sim_voltage2 = (float) v2;
+
+    // Tell the caller that all is well
+    return pass();
 }
 //==========================================================================================================
 

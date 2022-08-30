@@ -3,12 +3,15 @@
 //==========================================================================================================
 #pragma once
 #include "ppin_server.h"
+#include "sim_server.h"
 #include "polling_thread.h"
 
 struct global_t
 {
     bool    init_success;
     bool    simulate;
+    float   sim_voltage1, sim_voltage2;
+    float   voltage1, voltage2;
 };
 
 struct conf_t
@@ -26,6 +29,9 @@ extern global_t global;
 
 // The main command server
 extern CMainServer MainServer;
+
+// Server for simulation related function
+extern CSimServer SimServer;
 
 // Thread that polls and reports on voltage state changes
 extern CPollingThread PollingThread;
