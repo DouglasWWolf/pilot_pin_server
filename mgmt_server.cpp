@@ -37,7 +37,7 @@ void CMgmtServer::main()
     UDPSock client, server;
 
     // The UDP port we want to listen on is in the first spawn parameter
-    int port = *(int*)(m_spawn_param[0]);
+    uint16_t port = *(int*)(m_spawn_param[0]);
 
     // Create a UDP server
     if (!server.create_server(port, "", AF_INET))
@@ -52,8 +52,9 @@ void CMgmtServer::main()
         // If the command was "ping", send a ping response
         if (cmd == CMD_PING)
         {
+            // Fetch the port number to send our reply to
             reply_port = ping_cmd.port;
-            ping_rsp.cmd  = RSP_PING;
+            ping_rsp = {RSP_PING, port};
             ping_rsp.port = port;
             client.create_sender(reply_port, "localhost", AF_INET);
             client.send(&ping_rsp, sizeof ping_rsp);
