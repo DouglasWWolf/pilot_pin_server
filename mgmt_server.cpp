@@ -3,8 +3,10 @@
 //==========================================================================================================
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "mgmt_server.h"
 #include "udpsock.h"
+
 
 enum
 {
@@ -15,7 +17,7 @@ enum
 
 struct cmd_ping_t {uint16_t cmd; uint16_t port;};
 struct rsp_ping_t {uint16_t cmd; uint16_t port;};
-struct cmd_down_t {uint16_t cmd;};
+
 
 //==========================================================================================================
 // main() - Performs process management
@@ -23,14 +25,13 @@ struct cmd_down_t {uint16_t cmd;};
 void CMgmtServer::main()
 {
     int reply_port;
-
+    
     union 
     {
-        char        buffer[20];
+        char        buffer[4];
         uint16_t    cmd;
         cmd_ping_t  ping_cmd;
         rsp_ping_t  ping_rsp;
-        cmd_down_t  down_cmd;
     };
 
     // The UDP client and server socket
@@ -57,6 +58,7 @@ void CMgmtServer::main()
             ping_rsp.port = port;
             client.create_sender(reply_port, "localhost", AF_INET);
             client.send(&ping_rsp, sizeof ping_rsp);
+            client.close();
             continue;
         }        
 
