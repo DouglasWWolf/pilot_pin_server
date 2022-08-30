@@ -49,16 +49,25 @@ void CMgmtServer::main()
     // Wait for process management messages to arrive
     while (server.receive(buffer, sizeof buffer))
     {
-        // If the command was "ping", send a ping response
+        // If the command was "ping"...
         if (cmd == CMD_PING)
         {
-            // Fetch the port number to send our reply to
+            // The ping message includes the port number to reply to
             reply_port = ping_cmd.port;
+            
+            // We're going to send a ping response that identifies who we are
             ping_rsp = {RSP_PING, port};
-            ping_rsp.port = port;
+
+            // Create a sender socket
             client.create_sender(reply_port, "localhost", AF_INET);
+            
+            // Send the ping response
             client.send(&ping_rsp, sizeof ping_rsp);
+            
+            // We're done with that socket
             client.close();
+            
+            // And go back to listening for more messages
             continue;
         }        
 
