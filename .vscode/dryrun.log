@@ -1,0 +1,7 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/devel/pilot_pin_server'
+for subdir in . cpp03_framework cpp_server; do \
+    mkdir -p -m 777 obj_x86/$subdir ;\
+done
+make: Leaving directory '/devel/pilot_pin_server'
+ 
