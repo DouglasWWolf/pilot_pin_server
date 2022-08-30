@@ -7,7 +7,6 @@
 #include "mgmt_server.h"
 #include "udpsock.h"
 
-
 enum
 {
     CMD_PING = 1,
@@ -15,9 +14,9 @@ enum
     CMD_DOWN = 3
 };
 
+// Message structures for the message we understand
 struct cmd_ping_t {uint16_t cmd; uint16_t port;};
 struct rsp_ping_t {uint16_t cmd; uint16_t port;};
-
 
 //==========================================================================================================
 // main() - Performs process management
@@ -25,7 +24,7 @@ struct rsp_ping_t {uint16_t cmd; uint16_t port;};
 void CMgmtServer::main()
 {
     int reply_port;
-    
+
     union 
     {
         char        buffer[4];
