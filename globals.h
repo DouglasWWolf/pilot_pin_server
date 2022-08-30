@@ -5,6 +5,7 @@
 #include "pilot_server.h"
 #include "sim_server.h"
 #include "polling_thread.h"
+#include "mgmt_server.h"
 
 struct global_t
 {
@@ -35,3 +36,6 @@ extern CSimServer SimServer;
 
 // Thread that polls and reports on voltage state changes
 extern CPollingThread PollingThread;
+
+// Process management server
+extern CMgmtServer Manager;

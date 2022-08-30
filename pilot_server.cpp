@@ -1,5 +1,5 @@
 //==========================================================================================================
-// ppin_server.cpp - Implements a TCP command-line server
+// pilot_server.cpp - Implements a TCP command-line server
 //==========================================================================================================
 #include "globals.h"
 using namespace std;

@@ -1,5 +1,5 @@
 //==========================================================================================================
-// demo_server.h - Defines a TCP command-line server
+// pilot_server.h - Defines the main TCP command-line server
 //==========================================================================================================
 #pragma once
 #include "cmd_server_base.h"

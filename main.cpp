@@ -21,6 +21,7 @@ int main(int argc, char** argv)
 {
     cmd_server_t server_params;
     CCmdLine     CmdLine;
+    int          mport;
 
     // Tell the user who we are
     printf("Pilot Server - Version %d\n", SW_VERSION);
@@ -35,6 +36,7 @@ int main(int argc, char** argv)
     // Declare the valid command line switches
     CmdLine.declare_switch("-verbose", CLP_NONE);
     CmdLine.declare_switch("-sim",     CLP_NONE);
+    CmdLine.declare_switch("-mport",   CLP_REQUIRED);
 
     // Parse the command line
     if (!CmdLine.parse(argc, argv))
@@ -69,6 +71,9 @@ int main(int argc, char** argv)
 
     // Tell the user what port we're listening on
     printf("Listening for connection on TCP port %d\n", conf.port);
+
+    // If there was an "-mport" switch on the command line, spawn the process manager
+    if (CmdLine.has_switch("-mport", &mport)) Manager.spawn(&mport);
 
     // We have nothing else to do, so we'll just wait on the server thread
     MainServer.join();
