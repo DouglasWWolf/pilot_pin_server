@@ -7,17 +7,12 @@
 #include "cmd_line.h"
 #include "globals.h"
 #include "config_file.h"
+#include "changelog.h"
 
 using namespace std;
 
-// A command line parser
-CCmdLine    CmdLine;
-
-
-bool init_hardware() {return true;}
-bool init_simulation() {return true;}
-
 void fetch_config();
+
 
 //==========================================================================================================
 // main() - Execution starts here
@@ -25,6 +20,10 @@ void fetch_config();
 int main(int argc, char** argv)
 {
     cmd_server_t server_params;
+    CCmdLine     CmdLine;
+
+    // Tell the user who we are
+    printf("Pilot Server - Version %d\n", SW_VERSION);
 
     // Read the configuration file
     fetch_config();
@@ -50,12 +49,6 @@ int main(int argc, char** argv)
     // Find out if the user wants to be in verbose mode
     server_params.verbose = CmdLine.has_switch("-verbose");
 
-    // Initialize either the simulated hardware or the real hardware
-    if (global.simulate)
-        global.init_success = init_simulation();
-    else
-        global.init_success = init_hardware();
-
     // Spawn the thread that reports changes in pilot-pin state
     PollingThread.spawn();
 
@@ -73,6 +66,9 @@ int main(int argc, char** argv)
 
     // Start the command server
     MainServer.start(&server_params);
+
+    // Tell the user what port we're listening on
+    printf("Listening for connection on TCP port %d\n", conf.port);
 
     // We have nothing else to do, so we'll just wait on the server thread
     MainServer.join();
