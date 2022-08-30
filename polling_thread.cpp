@@ -6,14 +6,11 @@
 #include "globals.h"
 
 
-static float sim_get_voltage()
-{
-    return 9.9;
-}
 
 static float get_voltage()
 {
-    return 8.8;
+    if (global.simulate) return 8.8;
+    return 9.9;
 
 }
 
@@ -24,7 +21,7 @@ static float get_voltage()
 static const char* get_state()
 {
     // Fetch the voltage of the pilot pin
-    float voltage = (global.simulate) ? sim_get_voltage() : get_voltage();
+    float voltage = get_voltage();
 
     if (voltage > 0 && voltage < 10) return "A";
 
