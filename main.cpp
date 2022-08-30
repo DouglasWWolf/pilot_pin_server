@@ -90,7 +90,7 @@ void fetch_config()
     CConfigFile config;
 
     // Read the configuration file and drop dead if we can't
-    if (!config.read("pilot_pin_server.conf")) exit(1);
+    if (!config.read("pilot_server.conf")) exit(1);
 
     // Fetch the port number of the main server
     config.get("port", &conf.port);
