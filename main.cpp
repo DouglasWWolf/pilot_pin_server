@@ -2,6 +2,8 @@
 // cppserver - A demonstration of the CCmdServerBase class
 //==========================================================================================================
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "cmd_line.h"
 #include "globals.h"
 #include "config_file.h"
