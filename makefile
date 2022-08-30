@@ -59,7 +59,7 @@ ARMFLAGS =
 #-----------------------------------------------------------------------------
 # If there is no target on the command line, this is the target we use
 #-----------------------------------------------------------------------------
-.DEFAULT_GOAL := arm
+.DEFAULT_GOAL := x86
 
 #-----------------------------------------------------------------------------
 # Define the name of the compiler and what "build all" means for our platform
