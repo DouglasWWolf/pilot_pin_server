@@ -43,7 +43,7 @@ void CMgmtServer::main()
     if (!server.create_server(port, "", AF_INET))
     {
         printf("Can't create management server on socket %d\n", port);
-        while(true) usleep(999999999);
+        while(true) sleep(999999999);
     }
 
     // Wait for process management messages to arrive
