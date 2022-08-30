@@ -63,9 +63,6 @@ int main(int argc, char** argv)
     // Start the command server
     MainServer.start(&server_params);
 
-    // Wait for the server to be fully initialized
-    while (!MainServer.is_initialized()) usleep(10000);
-
     // We have nothing else to do, so we'll just wait on the server thread
     MainServer.join();
 }

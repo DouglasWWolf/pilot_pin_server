@@ -1,7 +1,28 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/devel/pilot_pin_server'
 for subdir in . cpp03_framework cpp_server; do \
-    mkdir -p -m 777 obj_x86/$subdir ;\
+    mkdir -p -m 777 obj_arm/$subdir ;\
 done
+ 
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c ppin_server.cpp -o obj_arm/ppin_server.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c polling_thread.cpp -o obj_arm/polling_thread.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c globals.cpp -o obj_arm/globals.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c main.cpp -o obj_arm/main.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp03_framework/mstimer.cpp -o obj_arm/cpp03_framework/mstimer.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp03_framework/config_file.cpp -o obj_arm/cpp03_framework/config_file.o
+ 
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp03_framework/udpsock.cpp -o obj_arm/cpp03_framework/udpsock.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp03_framework/netsock.cpp -o obj_arm/cpp03_framework/netsock.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp03_framework/cmd_line.cpp -o obj_arm/cpp03_framework/cmd_line.o
+ 
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp03_framework/serial_port.cpp -o obj_arm/cpp03_framework/serial_port.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp03_framework/cthread.cpp -o obj_arm/cpp03_framework/cthread.o
+ 
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp03_framework/netutil.cpp -o obj_arm/cpp03_framework/netutil.o
+ 
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server  -c cpp_server/cmd_server_base.cpp -o obj_arm/cpp_server/cmd_server_base.o
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-g++ -pthread -lm -lrt  -o ppin_server.arm obj_arm/ppin_server.o obj_arm/polling_thread.o obj_arm/globals.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o 
+ 
+/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi-strip ppin_server.arm
 make: Leaving directory '/devel/pilot_pin_server'
  

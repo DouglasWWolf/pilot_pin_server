@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Mon Aug 29 21:00:48 2022
+# Make data base, printed on Mon Aug 29 22:18:37 2022
 
 # Variables
 
@@ -19,7 +18,7 @@ GNUMAKEFLAGS :=
 ?F = $(notdir $?)
 # environment
 DESKTOP_SESSION = ubuntu
-# makefile (from 'makefile', line 69)
+# makefile (from 'makefile', line 74)
 X86_STRIP = strip
 # default
 .SHELLFLAGS := -c
@@ -45,7 +44,7 @@ CURDIR := /devel/pilot_pin_server
 SHELL = /bin/sh
 # environment
 SNAP_DATA = /var/snap/code/104
-# makefile (from 'makefile', line 68)
+# makefile (from 'makefile', line 73)
 X86_CXX = $(CXX)
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
@@ -60,7 +59,7 @@ SNAP_INSTANCE_NAME = code
 # environment
 SNAP_ARCH = amd64
 # makefile (from 'makefile', line 32)
-CPP_STD = c++0x
+CPP_STD = -std=c++0x
 # makefile (from 'makefile', line 1)
 MAKEFILE_LIST :=  makefile
 # automatic
@@ -70,7 +69,7 @@ IM_CONFIG_PHASE = 1
 # environment
 USERNAME = wolf
 # makefile (from 'makefile', line 38)
-CXXFLAGS = -O2 -g -Wall -Wno-write-strings -Wno-sign-compare -Wno-unused-result -Wno-strict-aliasing -fcommon -DLINUX -I cpp03_framework -I cpp_server
+CXXFLAGS = -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
@@ -81,21 +80,21 @@ MANAGERPID = 1727
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
-# makefile (from 'makefile', line 113)
-ARM_OBJS := obj_arm/ppin_server.o obj_arm/globals.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o
+# makefile (from 'makefile', line 116)
+ARM_OBJS := obj_arm/ppin_server.o obj_arm/polling_thread.o obj_arm/globals.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o
 # environment
 VSCODE_CWD = /home/wolf
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/104/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
-# makefile (from 'makefile', line 107)
-OBJ_FILES :=  ppin_server.o globals.o main.o cpp03_framework/mstimer.o cpp03_framework/config_file.o cpp03_framework/udpsock.o cpp03_framework/netsock.o cpp03_framework/cmd_line.o cpp03_framework/serial_port.o cpp03_framework/cthread.o cpp03_framework/netutil.o cpp_server/cmd_server_base.o
+# makefile (from 'makefile', line 109)
+OBJ_FILES :=  ppin_server.o polling_thread.o globals.o main.o cpp03_framework/mstimer.o cpp03_framework/config_file.o cpp03_framework/udpsock.o cpp03_framework/netsock.o cpp03_framework/cmd_line.o cpp03_framework/serial_port.o cpp03_framework/cthread.o cpp03_framework/netutil.o cpp_server/cmd_server_base.o
 # environment
 PATH = /home/wolf/.local/lib:/home/wolf/.local/lib:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/utils:/dma_tools:/opt/gcc-arm-11.2-2022.02-x86_64-arm-none-linux-gnueabihf/bin:/opt/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi/bin:/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin
 # environment
 GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
-# makefile (from 'makefile', line 105)
+# makefile (from 'makefile', line 107)
 C_OBJ := 
 # environment
 SESSION_MANAGER = local/simtool5-2:@/tmp/.ICE-unix/1976,unix/simtool5-2:/tmp/.ICE-unix/1976
@@ -131,10 +130,10 @@ GIO_LAUNCHED_DESKTOP_FILE_PID = 1508415
 %F = $(notdir $%)
 # environment
 DISPLAY = :1
-# makefile (from 'makefile', line 82)
+# makefile (from 'makefile', line 80)
 ARM_OBJ_DIR := obj_arm
 # makefile (from 'makefile', line 31)
-C_STD = gnu99
+C_STD = -std=gnu99
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
@@ -147,8 +146,8 @@ SSH_AGENT_PID = 1941
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
-# makefile (from 'makefile', line 112)
-X86_OBJS := obj_x86/ppin_server.o obj_x86/globals.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
+# makefile (from 'makefile', line 115)
+X86_OBJS := obj_x86/ppin_server.o obj_x86/polling_thread.o obj_x86/globals.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -169,8 +168,8 @@ SNAP_REAL_HOME = /home/wolf
 SNAP_CONTEXT = lqsH5sXz2LyqV4vxvvfLkxubAnSRpVUfTzPHcLiOeY8F8PJRbyO_
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
-# makefile (from 'makefile', line 106)
-CPP_OBJ := ppin_server.o globals.o main.o cpp03_framework/mstimer.o cpp03_framework/config_file.o cpp03_framework/udpsock.o cpp03_framework/netsock.o cpp03_framework/cmd_line.o cpp03_framework/serial_port.o cpp03_framework/cthread.o cpp03_framework/netutil.o cpp_server/cmd_server_base.o
+# makefile (from 'makefile', line 108)
+CPP_OBJ := ppin_server.o polling_thread.o globals.o main.o cpp03_framework/mstimer.o cpp03_framework/config_file.o cpp03_framework/udpsock.o cpp03_framework/netsock.o cpp03_framework/cmd_line.o cpp03_framework/serial_port.o cpp03_framework/cthread.o cpp03_framework/netutil.o cpp_server/cmd_server_base.o
 # environment
 SNAP_USER_COMMON = /home/wolf/snap/code/common
 # environment
@@ -193,30 +192,31 @@ QT_IM_MODULE = ibus
 SNAP_USER_DATA = /home/wolf/snap/code/104
 # environment
 SHLVL = 1
-# makefile (from 'makefile', line 64)
-ARM_CC = arm-none-linux-gnueabihf-gcc
+# makefile (from 'makefile', line 69)
+ARM_CC = $(ARM_PATH)-gcc
+# makefile (from 'makefile', line 68)
+ARM_PATH = /opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin/arm-none-linux-gnueabi
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # default
- 
 MAKE_VERSION := 4.2.1
 # environment
 USER = wolf
 # environment
 SNAP_REVISION = 104
-# makefile (from 'makefile', line 58)
-.DEFAULT_GOAL := x86
+# makefile (from 'makefile', line 62)
+.DEFAULT_GOAL := arm
 # environment
 XDG_CURRENT_DESKTOP = Unity
-# makefile (from 'makefile', line 63)
+# makefile (from 'makefile', line 67)
 ALL = x86 arm
-# makefile (from 'makefile', line 26)
+# makefile (from 'makefile', line 25)
 X86_TYPE = 64
-# makefile (from 'makefile', line 99)
+# makefile (from 'makefile', line 100)
 C_SRC_FILES := $(subst ,,  )
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
-# makefile (from 'makefile', line 83)
+# makefile (from 'makefile', line 81)
 X86_OBJ_DIR := obj_x86
 # default
 MAKE_COMMAND := make
@@ -240,24 +240,26 @@ MFLAGS = -pqrR
 GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
-# makefile (from 'makefile', line 66)
-ARM_STRIP = arm-none-linux-gnueabihf-strip
+# makefile (from 'makefile', line 71)
+ARM_STRIP = ${ARM_PATH}-strip
 # environment
 QT_ACCESSIBILITY = 1
-# makefile (from 'makefile', line 100)
-CPP_SRC_FILES := ppin_server.cpp globals.cpp main.cpp cpp03_framework/mstimer.cpp cpp03_framework/config_file.cpp cpp03_framework/udpsock.cpp cpp03_framework/netsock.cpp cpp03_framework/cmd_line.cpp cpp03_framework/serial_port.cpp cpp03_framework/cthread.cpp cpp03_framework/netutil.cpp cpp_server/cmd_server_base.cpp
+# makefile (from 'makefile', line 101)
+CPP_SRC_FILES := ppin_server.cpp polling_thread.cpp globals.cpp main.cpp cpp03_framework/mstimer.cpp cpp03_framework/config_file.cpp cpp03_framework/udpsock.cpp cpp03_framework/netsock.cpp cpp03_framework/cmd_line.cpp cpp03_framework/serial_port.cpp cpp03_framework/cthread.cpp cpp03_framework/netutil.cpp cpp_server/cmd_server_base.cpp
 # default
 MAKEFILES := 
 # environment
 SNAP_COOKIE = lqsH5sXz2LyqV4vxvvfLkxubAnSRpVUfTzPHcLiOeY8F8PJRbyO_
 # automatic
 <F = $(notdir $<)
-# makefile (from 'makefile', line 67)
+# makefile (from 'makefile', line 72)
 X86_CC = $(CC)
-# makefile (from 'makefile', line 65)
-ARM_CXX = arm-none-linux-gnueabihf-g++
+# makefile (from 'makefile', line 70)
+ARM_CXX = $(ARM_PATH)-g++
 # environment
 SNAP_NAME = code
+# makefile (from 'makefile', line 50)
+LINK_FLAGS = -pthread -lm -lrt
 # environment
 LC_ALL = C
 # environment
@@ -278,51 +280,51 @@ WINDOWPATH = 2
 GJS_DEBUG_OUTPUT = stderr
 # default
 .RECIPEPREFIX := 
-# makefile (from 'makefile', line 13)
+# makefile (from 'makefile', line 12)
 EXE = ppin_server
-# makefile (from 'makefile', line 20)
+# makefile (from 'makefile', line 19)
 SUBDIRS = . cpp03_framework cpp_server
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
 LANG = C
-# makefile (from 'makefile', line 53)
-ARMFLAGS = -march=armv7-a -mfpu=neon -mfloat-abi=hard -Wno-psabi
+# makefile (from 'makefile', line 56)
+ARMFLAGS = 
 # environment
 VSCODE_PID = 1508463
 # variable set hash-table stats:
-# Load=139/1024=14%, Rehash=0, Collisions=27/200=14%
+# Load=141/1024=14%, Rehash=0, Collisions=27/202=13%
 
+ 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
 
-# cpp_server (device 66306, inode 13107244): 4 files, no impossibilities.
-# . (device 66306, inode 13107572): 16 files, no impossibilities.
+# cpp_server (device 66306, inode 13107244): 7 files, no impossibilities.
+# . (device 66306, inode 13107572): 19 files, no impossibilities.
 # cpp03_framework (device 66306, inode 12584754): 22 files, no impossibilities.
 
-# 42 files, no impossibilities in 3 directories.
+# 48 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
 obj_x86/%.o: %.cpp
-#  recipe to execute (from 'makefile', line 120):
-	$(X86_CXX) -m$(X86_TYPE) $(CPPFLAGS) -std=$(CPP_STD) $(CXXFLAGS) -c $< -o $@
+#  recipe to execute (from 'makefile', line 123):
+	$(X86_CXX) -m$(X86_TYPE) $(CPPFLAGS) $(CPP_STD) $(CXXFLAGS) -c $< -o $@
 
 obj_x86/%.o: %.c
-#  recipe to execute (from 'makefile', line 123):
-	$(X86_CC) -m$(X86_TYPE) $(CPPFLAGS) -std=$(C_STD) $(CXXFLAGS) -c $< -o $@
+#  recipe to execute (from 'makefile', line 126):
+	$(X86_CC) -m$(X86_TYPE) $(CPPFLAGS) $(C_STD) $(CXXFLAGS) -c $< -o $@
 
- 
 obj_arm/%.o: %.cpp
-#  recipe to execute (from 'makefile', line 129):
-	$(ARM_CXX) $(CPPFLAGS) -std=$(CPP_STD) $(CXXFLAGS) $(ARMFLAGS) -c $< -o $@
+#  recipe to execute (from 'makefile', line 133):
+	$(ARM_CXX) $(CPPFLAGS) $(CPP_STD) $(CXXFLAGS) $(ARMFLAGS) -c $< -o $@
 
 obj_arm/%.o: %.c
-#  recipe to execute (from 'makefile', line 132):
-	$(ARM_CC) $(CPPFLAGS) -std=$(C_STD) $(CXXFLAGS) $(ARMFLAGS) -c $< -o $@
+#  recipe to execute (from 'makefile', line 136):
+	$(ARM_CC) $(CPPFLAGS) $(C_STD) $(CXXFLAGS) $(ARMFLAGS) -c $< -o $@
 
 # 4 implicit rules, 0 (0.0%) terminal.
 
@@ -340,12 +342,18 @@ obj_arm/cpp03_framework/serial_port.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-ppin_server.x86: obj_x86/ppin_server.o obj_x86/globals.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
+# Not a target:
+obj_arm/polling_thread.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 138):
-	$(X86_CXX) -m$(X86_TYPE) -pthread -o $@ $(X86_OBJS)
+
+ppin_server.x86: obj_x86/ppin_server.o obj_x86/polling_thread.o obj_x86/globals.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 143):
+	$(X86_CXX) -m$(X86_TYPE) $(LINK_FLAGS) -o $@ $(X86_OBJS)
 	$(X86_STRIP) $(EXE).x86
 
 obj_arm:
@@ -353,7 +361,7 @@ obj_arm:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 173):
+#  recipe to execute (from 'makefile', line 182):
 	@for subdir in $(SUBDIRS); do \
 	    mkdir -p -m 777 $(ARM_OBJ_DIR)/$$subdir ;\
 	done
@@ -408,11 +416,10 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 203):
+#  recipe to execute (from 'makefile', line 215):
 	@echo "SUBDIRS       = ${SUBDIRS}"
 	@echo "C_SRC_FILES   = ${C_SRC_FILES}"
 	@echo "CPP_SRC_FILES = ${CPP_SRC_FILES}"
- 
 	@echo "C_OBJ         = ${C_OBJ}"
 	@echo "CPP_OBJ       = ${CPP_OBJ}"
 	@echo "OBJ_FILES     = ${OBJ_FILES}"
@@ -438,7 +445,7 @@ obj_x86/cpp03_framework/netutil.o:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-29 20:59:33.995818003
+#  Last modified 2022-08-29 22:15:43.167487325
 #  File has been updated.
 #  Successfully updated.
 
@@ -446,7 +453,7 @@ tarball: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 188):
+#  recipe to execute (from 'makefile', line 199):
 	rm -rf $(EXE).tgz
 	tar --create --exclude-vcs -v -z -f $(EXE).tgz *
 
@@ -489,9 +496,8 @@ depend:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 196):
+#  recipe to execute (from 'makefile', line 207):
 	@makedepend    -p$(X86_OBJ_DIR)/ $(C_SRC_FILES) $(CPP_SRC_FILES) -Y 2>/dev/null
- 
 	@makedepend -a -p$(ARM_OBJ_DIR)/ $(C_SRC_FILES) $(CPP_SRC_FILES) -Y 2>/dev/null
 
 # Not a target:
@@ -506,12 +512,12 @@ obj_x86/cpp03_framework/config_file.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-ppin_server.arm: obj_arm/ppin_server.o obj_arm/globals.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o
+ppin_server.arm: obj_arm/ppin_server.o obj_arm/polling_thread.o obj_arm/globals.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 145):
-	$(ARM_CXX)  -pthread $(ARMFLAGS) -o $@ $(ARM_OBJS) 
+#  recipe to execute (from 'makefile', line 151):
+	$(ARM_CXX) $(LINK_FLAGS) $(ARMFLAGS) -o $@ $(ARM_OBJS) 
 	$(ARM_STRIP) $(EXE).arm
 
 # Not a target:
@@ -536,7 +542,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 181):
+#  recipe to execute (from 'makefile', line 191):
 	rm -rf Makefile.bak makefile.bak $(EXE).tgz $(EXE).x86 $(EXE).arm
 	rm -rf $(X86_OBJ_DIR) $(ARM_OBJ_DIR)
 
@@ -569,16 +575,21 @@ obj_x86:
 # ^ := 
 # automatic
 # ? := 
- 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/13=8%
-#  recipe to execute (from 'makefile', line 168):
+#  recipe to execute (from 'makefile', line 177):
 	@for subdir in $(SUBDIRS); do \
 	    mkdir -p -m 777 $(X86_OBJ_DIR)/$$subdir ;\
 	done
 
 # Not a target:
 obj_x86/cpp03_framework/serial_port.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj_x86/polling_thread.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -614,19 +625,19 @@ obj_arm/cpp03_framework/netsock.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=39/1024=4%, Rehash=0, Collisions=3/88=3%
+# Load=41/1024=4%, Rehash=0, Collisions=3/92=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 78 / storage = 1324 B / avg = 16 B
-# current buf: size = 8162 B / used = 1324 B / count = 78 / avg = 16 B
+# strcache buffers: 1 (0) / strings = 82 / storage = 1410 B / avg = 17 B
+# current buf: size = 8162 B / used = 1410 B / count = 82 / avg = 17 B
 
-# strcache performance: lookups = 119 / hit rate = 34%
+# strcache performance: lookups = 127 / hit rate = 35%
 # hash-table stats:
-# Load=78/8192=1%, Rehash=0, Collisions=5/119=4%
-# Finished Make data base on Mon Aug 29 21:00:48 2022
+# Load=82/8192=1%, Rehash=0, Collisions=5/127=4%
+# Finished Make data base on Mon Aug 29 22:18:37 2022
 
  
