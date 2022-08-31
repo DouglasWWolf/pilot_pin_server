@@ -93,10 +93,25 @@ void fetch_config()
     // Read the configuration file and drop dead if we can't
     if (!config.read("pilot_server.conf")) exit(1);
 
-    // Fetch the port number of the main server
-    config.get("port", &conf.port);
+    try
+    {
+       // Fetch the port number of the main server
+        config.get("port", &conf.port);
 
-    // Fetch the number of millisecond between voltage readings
-    config.get("polling_period_ms", &conf.polling_period_ms);
+        // Fetch the number of millisecond between voltage readings
+        config.get("polling_period_ms", &conf.polling_period_ms);
+
+        // Read the gain and offsets for voltage calibration
+        config.get("posv_cal", &conf.posv_gain, &conf.posv_offset);
+        config.get("negv_cal", &conf.negv_gain, &conf.negv_offset);
+    }
+
+    // If any configuration setting is missing, it's fatal
+    catch(runtime_error& ex)
+    {
+        printf("%s\n", ex.what());
+        exit(1);
+    }
+
 }
 //==========================================================================================================

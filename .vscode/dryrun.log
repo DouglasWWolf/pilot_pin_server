@@ -6,6 +6,7 @@ done
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c sim_server.cpp -o obj_x86/sim_server.o
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c pilot_server.cpp -o obj_x86/pilot_server.o
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c polling_thread.cpp -o obj_x86/polling_thread.o
+g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c mgmt_server.cpp -o obj_x86/mgmt_server.o
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c globals.cpp -o obj_x86/globals.o
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c main.cpp -o obj_x86/main.o
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c cpp03_framework/mstimer.cpp -o obj_x86/cpp03_framework/mstimer.o
@@ -17,7 +18,7 @@ g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c cpp03_framework/cthread.cpp -o obj_x86/cpp03_framework/cthread.o
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c cpp03_framework/netutil.cpp -o obj_x86/cpp03_framework/netutil.o
 g++ -m64  -std=c++0x -O2 -g -Wall -c -fmessage-length=0 -D_GNU_SOURCE -Wno-sign-compare -Wno-unused-value -Icpp03_framework -Icpp_server -c cpp_server/cmd_server_base.cpp -o obj_x86/cpp_server/cmd_server_base.o
-g++ -m64 -pthread -lm -lrt -o pilot_server.x86 obj_x86/sim_server.o obj_x86/pilot_server.o obj_x86/polling_thread.o obj_x86/globals.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
+g++ -m64 -pthread -lm -lrt -o pilot_server.x86 obj_x86/sim_server.o obj_x86/pilot_server.o obj_x86/polling_thread.o obj_x86/mgmt_server.o obj_x86/globals.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
 strip pilot_server.x86
 make: Leaving directory '/devel/pilot_server'
  

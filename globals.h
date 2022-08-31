@@ -19,6 +19,8 @@ struct conf_t
 {
     int     port;
     int     polling_period_ms;
+    double  posv_gain, posv_offset;
+    double  negv_gain, negv_offset;
 };
 
 
