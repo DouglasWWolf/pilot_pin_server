@@ -13,7 +13,7 @@ public:
     // Destructor() - Closes the devices
     ~CPilotADC() {close();}
 
-    // Opens the device files
+    // Opens the device files.  Returns 'false' if it can't
     bool    init();
 
     // Closes the device files

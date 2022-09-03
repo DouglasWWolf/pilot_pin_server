@@ -38,8 +38,14 @@ void CPilotADC::close()
 //==========================================================================================================
 
 
+
 //==========================================================================================================
 // init() - Opens the device files
+//
+// On Entry: conf.posv_device = The name of the device file for the positive voltage
+//           conf.negv_device = The name of the device file for the negative voltage
+//
+// Returns:  true if both files could be opened, else false
 //==========================================================================================================
 bool CPilotADC::init()
 {
