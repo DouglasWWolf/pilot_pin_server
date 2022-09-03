@@ -9,7 +9,7 @@
 #include "pilot_adc.h"
 
 //==========================================================================================================
-// read_adc() - Reads an ADC value and returns it as an integer
+// read_adc() - Reads an ASCII ADC value and returns it as an integer
 //==========================================================================================================
 static int read_adc(int fd)
 {
