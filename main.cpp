@@ -29,7 +29,6 @@ int main(int argc, char** argv)
     // Read the configuration file
     fetch_config();
 
-
     // Set up some default server parameters
     server_params.verbose = false;
     server_params.port    = conf.port;
