@@ -29,6 +29,9 @@ int main(int argc, char** argv)
     // Read the configuration file
     fetch_config();
 
+    // If we can't read the pilot-pin ADC devices, give up
+    if (!PilotADC.init()) exit(1);
+
     // Set up some default server parameters
     server_params.verbose = false;
     server_params.port    = conf.port;
@@ -100,6 +103,10 @@ void fetch_config()
 
         // Fetch the number of millisecond between voltage readings
         config.get("polling_period_ms", &conf.polling_period_ms);
+
+        // Fetch the names of the device files
+        config.get("posv_device", &conf.posv_device);
+        config.get("negv_device", &conf.negv_device);
 
         // Read the gain and offsets for voltage calibration
         config.get("posv_cal", &conf.posv_gain, &conf.posv_offset);

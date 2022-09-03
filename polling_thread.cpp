@@ -6,7 +6,6 @@
 #include "globals.h"
 
 
-
 static void get_voltages()
 {
     // If we're in simulation mode, return the simulated voltage

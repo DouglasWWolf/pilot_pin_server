@@ -6,6 +6,7 @@
 #include "sim_server.h"
 #include "polling_thread.h"
 #include "mgmt_server.h"
+#include "pilot_adc.h"
 
 struct global_t
 {
@@ -19,6 +20,7 @@ struct conf_t
 {
     int     port;
     int     polling_period_ms;
+    string  posv_device, negv_device;
     double  posv_gain, posv_offset;
     double  negv_gain, negv_offset;
 };
@@ -41,3 +43,9 @@ extern CPollingThread PollingThread;
 
 // Process management server
 extern CMgmtServer Manager;
+
+// Manages the ADC that read voltages
+extern CPilotADC PilotADC;
+
+// A place to throw away values
+extern volatile int bitbucket;

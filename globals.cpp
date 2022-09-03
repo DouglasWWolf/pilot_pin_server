@@ -9,6 +9,9 @@ global_t global;
 // Values set by the configuration file
 conf_t conf;
 
+// A place to throw away values
+volatile int bitbucket;
+
 // The server
 CMainServer MainServer;
 
@@ -20,3 +23,7 @@ CPollingThread PollingThread;
 
 // Process management server
 CMgmtServer Manager;
+
+
+// Manages the ADC that read voltages
+CPilotADC PilotADC;
