@@ -14,7 +14,7 @@ void CMainServer::on_client_connect()
     string current_state = PollingThread.get_state();
 
     // If we had an initialization failure, tell the client
-    if (PilotADC.is_init_failure()) sendf(".init_fail\n");
+    if (!global.simulate && PilotADC.is_init_failure()) sendf(".init_fail\n");
 
     // Tell the newly connected client the state of the pilot-pin
     sendf(".state %s\n", current_state.c_str());
