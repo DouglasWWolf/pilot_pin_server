@@ -29,8 +29,6 @@ int main(int argc, char** argv)
     // Read the configuration file
     fetch_config();
 
-    // Open the pilot-pin ADC device files
-    PilotADC.init();
 
     // Set up some default server parameters
     server_params.verbose = false;
@@ -53,6 +51,9 @@ int main(int argc, char** argv)
 
     // Find out if the user wants to be in verbose mode
     server_params.verbose = CmdLine.has_switch("-verbose");
+
+    // Open the pilot-pin ADC device files
+    if (!global.simulate) PilotADC.init();
 
     // Spawn the thread that reports changes in pilot-pin state
     PollingThread.spawn();
