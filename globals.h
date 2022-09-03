@@ -10,7 +10,6 @@
 
 struct global_t
 {
-    bool    init_success;
     bool    simulate;
     float   sim_posv, sim_negv;
     float   posv, negv;
