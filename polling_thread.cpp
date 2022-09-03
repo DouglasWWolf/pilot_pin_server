@@ -33,7 +33,7 @@ static void get_voltages()
 //==========================================================================================================
 static const char* get_state()
 {
-    // Fetch the pilot pin voltage and pilot pin minimum voltage
+    // Fetch the pilot pin positive and negative voltages
     get_voltages();
     
     // Save voltages we just fetched
@@ -41,15 +41,15 @@ static const char* get_state()
     float negv = global.negv;
 
     // define a state for the pilot minimum voltage. 
-    // true indicates a good low voltage reading, false indicates a bad low voltage reading
-    bool pilot_low = (negv >= -12.60 && negv <= -9.56);
+    // true indicates a good negative voltage reading, false indicates a bad negative voltage reading
+    bool negv_ok = (negv >= -12.60 && negv <= -9.56);
 
     // check pilot high voltage and set the pilot state accordingly
-    if (posv >= 11.40 && posv <= 12.60) return pilot_low ? "A2" : "A1";
-    if (posv >=  8.36 && posv <=  9.56) return pilot_low ? "B2" : "B1";
-    if (posv >=  5.48 && posv <=  6.49) return pilot_low ? "C2" : "C1";
-    if (posv >=  2.62 && posv <=  3.25) return pilot_low ? "D2" : "D1";
-    if (posv >=  0    && posv <=  0.25) return pilot_low ? "F"  : "E";
+    if (posv >= 11.40 && posv <= 12.60) return negv_ok ? "A2" : "A1";
+    if (posv >=  8.36 && posv <=  9.56) return negv_ok ? "B2" : "B1";
+    if (posv >=  5.48 && posv <=  6.49) return negv_ok ? "C2" : "C1";
+    if (posv >=  2.62 && posv <=  3.25) return negv_ok ? "D2" : "D1";
+    if (posv >=  0    && posv <=  0.25) return negv_ok ? "F"  : "E";
     
     // if we reach here, something is very wrong, return state F
     return "F";
