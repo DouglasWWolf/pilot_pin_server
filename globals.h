@@ -12,8 +12,8 @@ struct global_t
 {
     bool    init_success;
     bool    simulate;
-    float   sim_voltage1, sim_voltage2;
-    float   voltage1, voltage2;
+    float   sim_posv, sim_negv;
+    float   posv, negv;
 };
 
 struct conf_t

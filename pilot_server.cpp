@@ -13,6 +13,9 @@ void CMainServer::on_client_connect()
     // Find the current state of the pilot pin
     string current_state = PollingThread.get_state();
 
+    // If we had an initialization failure, tell the client
+    if (PilotADC.is_init_failure()) sendf(".init_fail\n");
+
     // Tell the newly connected client the state of the pilot-pin
     sendf(".state %s\n", current_state.c_str());
 }
@@ -39,7 +42,7 @@ void CMainServer::handle_command()
 //==========================================================================================================
 bool CMainServer::handle_voltageq()
 {
-    sendf(".voltage %1.2f %1.2f\n", global.voltage1, global.voltage2);
+    sendf(".voltage %1.2f %1.2f\n", global.posv, global.negv);
     return true;
 }
 //==========================================================================================================

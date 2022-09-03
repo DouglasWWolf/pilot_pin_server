@@ -22,6 +22,9 @@ public:
     // Fetches the two voltages
     void    get_voltages(float *posv, float* negv);
 
+    // Returns true if init() failed (or was never called)
+    bool    is_init_failure() {return m_sd_pos == -1 || m_sd_neg == -1;}
+
 protected:
 
     // File descriptors for the devices that read the negative and positive voltages

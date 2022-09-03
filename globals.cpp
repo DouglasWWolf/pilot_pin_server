@@ -24,6 +24,5 @@ CPollingThread PollingThread;
 // Process management server
 CMgmtServer Manager;
 
-
 // Manages the ADC that read voltages
 CPilotADC PilotADC;

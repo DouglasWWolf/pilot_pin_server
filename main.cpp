@@ -29,8 +29,8 @@ int main(int argc, char** argv)
     // Read the configuration file
     fetch_config();
 
-    // If we can't read the pilot-pin ADC devices, give up
-    if (!PilotADC.init()) exit(1);
+    // Open the pilot-pin ADC device files
+    PilotADC.init();
 
     // Set up some default server parameters
     server_params.verbose = false;

@@ -6,19 +6,26 @@
 #include "globals.h"
 
 
+//==========================================================================================================
+// get_voltages() - Fetches the positive and negative voltages 
+//
+// On Exit: Voltages are in global.posv and global.negv
+//==========================================================================================================
 static void get_voltages()
 {
     // If we're in simulation mode, return the simulated voltage
     if (global.simulate)
     {
-        global.voltage1 = global.sim_voltage1;
-        global.voltage2 = global.sim_voltage2;
+        global.posv = global.sim_posv;
+        global.negv = global.sim_negv;
         return;
     }
 
-    global.voltage1 = 1.1;
-    global.voltage2 = 2.2;
+    // Fetch the real voltages from the hardware
+    PilotADC.get_voltages(&global.posv, &global.negv);
 }
+//==========================================================================================================
+
 
 
 //==========================================================================================================
@@ -29,20 +36,20 @@ static const char* get_state()
     // Fetch the pilot pin voltage and pilot pin minimum voltage
     get_voltages();
     
-    // save voltages we just fetched in high and low variables
-    float voltage_high = global.voltage1;
-    float voltage_low  = global.voltage2;
+    // Save voltages we just fetched
+    float posv = global.posv;
+    float negv = global.negv;
 
     // define a state for the pilot minimum voltage. 
     // true indicates a good low voltage reading, false indicates a bad low voltage reading
-    bool pilot_low = (voltage_low >= -12.60 && voltage_low <= -9.56);
+    bool pilot_low = (negv >= -12.60 && negv <= -9.56);
 
     // check pilot high voltage and set the pilot state accordingly
-    if (voltage_high >= 11.40 && voltage_high <= 12.60) return pilot_low ? "A2" : "A1";
-    if (voltage_high >=  8.36 && voltage_high <=  9.56) return pilot_low ? "B2" : "B1";
-    if (voltage_high >=  5.48 && voltage_high <=  6.49) return pilot_low ? "C2" : "C1";
-    if (voltage_high >=  2.62 && voltage_high <=  3.25) return pilot_low ? "D2" : "D1";
-    if (voltage_high >=  0    && voltage_high <=  0.25) return pilot_low ? "F"  : "E";
+    if (posv >= 11.40 && posv <= 12.60) return pilot_low ? "A2" : "A1";
+    if (posv >=  8.36 && posv <=  9.56) return pilot_low ? "B2" : "B1";
+    if (posv >=  5.48 && posv <=  6.49) return pilot_low ? "C2" : "C1";
+    if (posv >=  2.62 && posv <=  3.25) return pilot_low ? "D2" : "D1";
+    if (posv >=  0    && posv <=  0.25) return pilot_low ? "F"  : "E";
     
     // if we reach here, something is very wrong, return state F
     return "F";

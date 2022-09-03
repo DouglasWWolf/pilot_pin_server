@@ -75,6 +75,13 @@ bool CPilotADC::init()
 //==========================================================================================================
 void CPilotADC::get_voltages(float *posv, float* negv)
 {
+    // If init() failed, we will always return zeros
+    if (m_sd_neg == -1 || m_sd_pos == -1)
+    {
+        *posv = *negv = 0.0;
+        return;
+    }
+
     // Read the two voltages
     *posv = read_adc(m_sd_pos);
     *negv = read_adc(m_sd_neg);

@@ -32,8 +32,8 @@ bool CSimServer::handle_voltage()
     if (!m_line.get_next(&v2)) return fail_syntax();
 
     // Fill in the simulated voltages
-    global.sim_voltage1 = (float) v1;
-    global.sim_voltage2 = (float) v2;
+    global.sim_posv = (float) v1;
+    global.sim_negv = (float) v2;
 
     // Tell the caller that all is well
     return pass();
