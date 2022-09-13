@@ -111,6 +111,10 @@ void fetch_config()
         // Read the gain and offsets for voltage calibration
         config.get("posv_cal", &conf.posv_gain, &conf.posv_offset);
         config.get("negv_cal", &conf.negv_gain, &conf.negv_offset);
+
+        // Read the reference voltages for computing DC offset
+        config.get("posv_dc_ref", &conf.posv_dc_ref);
+        config.get("negv_dc_ref", &conf.negv_dc_ref);
     }
 
     // If any configuration setting is missing, it's fatal

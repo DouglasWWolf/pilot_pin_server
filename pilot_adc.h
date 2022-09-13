@@ -27,7 +27,18 @@ public:
 
 protected:
 
+    enum vchannel_t {POSV, NEGV};
+    
+    // Returns the raw voltage reading in millivolts
+    int     read_raw_voltage(vchannel_t channel);
+
+    // Returns an adjusted (for DC offset) voltage reading in millivolts
+    int     read_adjusted_voltage(vchannel_t channel);
+
     // File descriptors for the devices that read the negative and positive voltages
-   int     m_sd_neg, m_sd_pos;
+    int     m_sd_neg, m_sd_pos;
+
+    // The DC offset values (in millivolts) for each channel
+    int     m_posv_dc_offset, m_negv_dc_offset;
 
 };

@@ -22,6 +22,7 @@ struct conf_t
     string  posv_device, negv_device;
     double  posv_gain, posv_offset;
     double  negv_gain, negv_offset;
+    int     posv_dc_ref, negv_dc_ref;
 };
 
 

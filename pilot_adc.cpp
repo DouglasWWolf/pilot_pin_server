@@ -8,12 +8,35 @@
 #include "globals.h"
 #include "pilot_adc.h"
 
+
+
+
 //==========================================================================================================
-// read_adc() - Reads an ASCII ADC value and returns it as an integer
+// read_adjusted_voltage() - Returns the ADC value (in millivolts) with the DC-offset subtracted
 //==========================================================================================================
-static int read_adc(int fd)
+int CPilotADC::read_adjusted_voltage(vchannel_t channel)
+{
+    int voltage;
+
+    if (channel == POSV)
+        voltage = read_raw_voltage(POSV) - m_posv_dc_offset;
+    else
+        voltage = read_raw_voltage(NEGV) - m_negv_dc_offset;
+
+    return voltage;
+}
+//==========================================================================================================
+
+
+//==========================================================================================================
+// read_raw_voltage() - Reads an ASCII value and returns it as an integer (in millivolts)
+//==========================================================================================================
+int CPilotADC::read_raw_voltage(vchannel_t channel)
 {
     char buffer[10];
+
+    // Figure out which file descriptor to read
+    int fd = (channel == POSV) ? m_sd_pos : m_sd_neg;
 
     // Rewind to the start of the file
     lseek(fd, 0, SEEK_SET);
@@ -50,6 +73,11 @@ void CPilotADC::close()
 //==========================================================================================================
 bool CPilotADC::init()
 {
+    int i, posv_sum = 0, negv_sum = 0;
+    
+    // The number of samples to average when computing DC offset
+    const int SAMPLE_COUNT = 100;
+
     // Open the ADC device that reads the negative voltage
     m_sd_neg = ::open(conf.negv_device.c_str(), O_RDONLY);
     if (m_sd_neg == -1)
@@ -71,6 +99,21 @@ bool CPilotADC::init()
         return false;
     }
 
+    // Sum a number of readings for each voltage channel
+    for (i=0; i<SAMPLE_COUNT; ++i)
+    {
+        posv_sum += read_raw_voltage(POSV);
+        negv_sum += read_raw_voltage(NEGV);
+    }
+
+    // Compute the average of each voltage channel
+    int posv_avg = posv_sum / SAMPLE_COUNT;
+    int negv_avg = negv_sum / SAMPLE_COUNT;
+
+    // Compute the DC offset of each voltage channel
+    m_posv_dc_offset = posv_avg - conf.posv_dc_ref;
+    m_negv_dc_offset = negv_avg - conf.negv_dc_ref;
+
     // Tell the caller that both device files are open
     return true;
 }
@@ -89,12 +132,12 @@ void CPilotADC::get_voltages(float *posv, float* negv)
         return;
     }
 
-    // Read the two voltages
-    *posv = read_adc(m_sd_pos);
-    *negv = read_adc(m_sd_neg);
+    // Fetch the adjusted (for DC offset) voltage from each channel
+    int adj_posv = read_adjusted_voltage(POSV);
+    int adj_negv = read_adjusted_voltage(NEGV);
 
-    // Calibrate the two voltages
-    *posv = *posv * conf.posv_gain + conf.posv_offset;
-    *negv = *negv * conf.negv_gain + conf.negv_offset;
+    // Scale the two voltages
+    *posv = adj_posv * conf.posv_gain + conf.posv_offset;
+    *negv = adj_negv * conf.negv_gain + conf.negv_offset;
 }
 //==========================================================================================================
