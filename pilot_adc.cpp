@@ -19,9 +19,9 @@ int CPilotADC::read_adjusted_voltage(vchannel_t channel)
     int voltage;
 
     if (channel == POSV)
-        voltage = read_raw_voltage(POSV) - m_posv_dc_offset;
+        voltage = read_raw_voltage(POSV) - conf.posv_dc_offset;
     else
-        voltage = read_raw_voltage(NEGV) - m_negv_dc_offset;
+        voltage = read_raw_voltage(NEGV) - conf.negv_dc_offset;
 
     return voltage;
 }
@@ -73,11 +73,7 @@ void CPilotADC::close()
 //==========================================================================================================
 bool CPilotADC::init()
 {
-    int i, posv_sum = 0, negv_sum = 0;
-    
-    // The number of samples to average when computing DC offset
-    const int SAMPLE_COUNT = 100;
-
+   
     // Open the ADC device that reads the negative voltage
     m_sd_neg = ::open(conf.negv_device.c_str(), O_RDONLY);
     if (m_sd_neg == -1)
@@ -98,21 +94,6 @@ bool CPilotADC::init()
         close();
         return false;
     }
-
-    // Sum a number of readings for each voltage channel
-    for (i=0; i<SAMPLE_COUNT; ++i)
-    {
-        posv_sum += read_raw_voltage(POSV);
-        negv_sum += read_raw_voltage(NEGV);
-    }
-
-    // Compute the average of each voltage channel
-    int posv_avg = posv_sum / SAMPLE_COUNT;
-    int negv_avg = negv_sum / SAMPLE_COUNT;
-
-    // Compute the DC offset of each voltage channel
-    m_posv_dc_offset = posv_avg - conf.posv_dc_ref;
-    m_negv_dc_offset = negv_avg - conf.negv_dc_ref;
 
     // Tell the caller that both device files are open
     return true;

@@ -113,8 +113,8 @@ void fetch_config()
         config.get("negv_cal", &conf.negv_gain, &conf.negv_offset);
 
         // Read the reference voltages for computing DC offset
-        config.get("posv_dc_ref", &conf.posv_dc_ref);
-        config.get("negv_dc_ref", &conf.negv_dc_ref);
+        config.get("posv_dc_offset", &conf.posv_dc_offset);
+        config.get("negv_dc_offset", &conf.negv_dc_offset);
     }
 
     // If any configuration setting is missing, it's fatal
