@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Sep  2 20:29:37 2022
+# Make data base, printed on Mon Sep 12 21:15:01 2022
 
 # Variables
 
@@ -81,7 +81,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # makefile (from 'makefile', line 116)
-ARM_OBJS := obj_arm/sim_server.o obj_arm/pilot_server.o obj_arm/polling_thread.o obj_arm/mgmt_server.o obj_arm/globals.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/cansock.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o
+ARM_OBJS := obj_arm/sim_server.o obj_arm/pilot_server.o obj_arm/polling_thread.o obj_arm/mgmt_server.o obj_arm/globals.o obj_arm/pilot_adc.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/cansock.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o
 # environment
 VSCODE_CWD = /home/wolf
 # environment
@@ -89,9 +89,9 @@ GSETTINGS_SCHEMA_DIR = /snap/code/106/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # makefile (from 'makefile', line 109)
-OBJ_FILES :=  sim_server.o pilot_server.o polling_thread.o mgmt_server.o globals.o main.o cpp03_framework/mstimer.o cpp03_framework/config_file.o cpp03_framework/cansock.o cpp03_framework/udpsock.o cpp03_framework/netsock.o cpp03_framework/cmd_line.o cpp03_framework/serial_port.o cpp03_framework/cthread.o cpp03_framework/netutil.o cpp_server/cmd_server_base.o
+OBJ_FILES :=  sim_server.o pilot_server.o polling_thread.o mgmt_server.o globals.o pilot_adc.o main.o cpp03_framework/mstimer.o cpp03_framework/config_file.o cpp03_framework/cansock.o cpp03_framework/udpsock.o cpp03_framework/netsock.o cpp03_framework/cmd_line.o cpp03_framework/serial_port.o cpp03_framework/cthread.o cpp03_framework/netutil.o cpp_server/cmd_server_base.o
 # environment
-PATH = /home/wolf/.local/lib:/home/wolf/.local/lib:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/utils:/dma_tools:/opt/gcc-arm-11.2-2022.02-x86_64-arm-none-linux-gnueabihf/bin:/opt/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi/bin:/opt/freescale/usr/local/gcc-4.4.4-glibc-2.11.1-multilib-1.0/arm-fsl-linux-gnueabi/bin
+PATH = /home/wolf/.local/lib:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
 # makefile (from 'makefile', line 107)
@@ -123,7 +123,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1001/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4349
+GIO_LAUNCHED_DESKTOP_FILE_PID = 1360859
 # automatic
 %F = $(notdir $%)
 # environment
@@ -145,7 +145,7 @@ ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
 # makefile (from 'makefile', line 115)
-X86_OBJS := obj_x86/sim_server.o obj_x86/pilot_server.o obj_x86/polling_thread.o obj_x86/mgmt_server.o obj_x86/globals.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/cansock.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
+X86_OBJS := obj_x86/sim_server.o obj_x86/pilot_server.o obj_x86/polling_thread.o obj_x86/mgmt_server.o obj_x86/globals.o obj_x86/pilot_adc.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/cansock.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -167,7 +167,7 @@ SNAP_CONTEXT = lqsH5sXz2LyqV4vxvvfLkxubAnSRpVUfTzPHcLiOeY8F8PJRbyO_
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # makefile (from 'makefile', line 108)
-CPP_OBJ := sim_server.o pilot_server.o polling_thread.o mgmt_server.o globals.o main.o cpp03_framework/mstimer.o cpp03_framework/config_file.o cpp03_framework/cansock.o cpp03_framework/udpsock.o cpp03_framework/netsock.o cpp03_framework/cmd_line.o cpp03_framework/serial_port.o cpp03_framework/cthread.o cpp03_framework/netutil.o cpp_server/cmd_server_base.o
+CPP_OBJ := sim_server.o pilot_server.o polling_thread.o mgmt_server.o globals.o pilot_adc.o main.o cpp03_framework/mstimer.o cpp03_framework/config_file.o cpp03_framework/cansock.o cpp03_framework/udpsock.o cpp03_framework/netsock.o cpp03_framework/cmd_line.o cpp03_framework/serial_port.o cpp03_framework/cthread.o cpp03_framework/netutil.o cpp_server/cmd_server_base.o
 # environment
 SNAP_USER_COMMON = /home/wolf/snap/code/common
 # environment
@@ -238,12 +238,14 @@ MFLAGS = -pqrR
 GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
+# environment
+NO_AT_BRIDGE = 1
 # makefile (from 'makefile', line 71)
 ARM_STRIP = ${ARM_PATH}-strip
 # environment
 QT_ACCESSIBILITY = 1
 # makefile (from 'makefile', line 101)
-CPP_SRC_FILES := sim_server.cpp pilot_server.cpp polling_thread.cpp mgmt_server.cpp globals.cpp main.cpp cpp03_framework/mstimer.cpp cpp03_framework/config_file.cpp cpp03_framework/cansock.cpp cpp03_framework/udpsock.cpp cpp03_framework/netsock.cpp cpp03_framework/cmd_line.cpp cpp03_framework/serial_port.cpp cpp03_framework/cthread.cpp cpp03_framework/netutil.cpp cpp_server/cmd_server_base.cpp
+CPP_SRC_FILES := sim_server.cpp pilot_server.cpp polling_thread.cpp mgmt_server.cpp globals.cpp pilot_adc.cpp main.cpp cpp03_framework/mstimer.cpp cpp03_framework/config_file.cpp cpp03_framework/cansock.cpp cpp03_framework/udpsock.cpp cpp03_framework/netsock.cpp cpp03_framework/cmd_line.cpp cpp03_framework/serial_port.cpp cpp03_framework/cthread.cpp cpp03_framework/netutil.cpp cpp_server/cmd_server_base.cpp
 # default
 MAKEFILES := 
 # environment
@@ -291,9 +293,9 @@ ARMFLAGS =
 # environment
 VSCODE_PID = 4402
 # variable set hash-table stats:
-# Load=140/1024=14%, Rehash=0, Collisions=27/201=13%
-
  
+# Load=141/1024=14%, Rehash=0, Collisions=27/202=13%
+
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
@@ -301,10 +303,10 @@ VSCODE_PID = 4402
 # Directories
 
 # cpp_server (device 66306, inode 13107244): 7 files, no impossibilities.
-# . (device 66306, inode 13107838): 22 files, no impossibilities.
+# . (device 66306, inode 13107838): 24 files, no impossibilities.
 # cpp03_framework (device 66306, inode 12584728): 24 files, no impossibilities.
 
-# 53 files, no impossibilities in 3 directories.
+# 55 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -330,6 +332,12 @@ obj_arm/%.o: %.c
 
 # Not a target:
 obj_x86/cpp03_framework/udpsock.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj_x86/pilot_adc.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -402,7 +410,7 @@ obj_x86/cpp_server/cmd_server_base.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-pilot_server.arm: obj_arm/sim_server.o obj_arm/pilot_server.o obj_arm/polling_thread.o obj_arm/mgmt_server.o obj_arm/globals.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/cansock.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o
+pilot_server.arm: obj_arm/sim_server.o obj_arm/pilot_server.o obj_arm/polling_thread.o obj_arm/mgmt_server.o obj_arm/globals.o obj_arm/pilot_adc.o obj_arm/main.o obj_arm/cpp03_framework/mstimer.o obj_arm/cpp03_framework/config_file.o obj_arm/cpp03_framework/cansock.o obj_arm/cpp03_framework/udpsock.o obj_arm/cpp03_framework/netsock.o obj_arm/cpp03_framework/cmd_line.o obj_arm/cpp03_framework/serial_port.o obj_arm/cpp03_framework/cthread.o obj_arm/cpp03_framework/netutil.o obj_arm/cpp_server/cmd_server_base.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -460,6 +468,12 @@ tarball: clean
 #  recipe to execute (from 'makefile', line 199):
 	rm -rf $(EXE).tgz
 	tar --create --exclude-vcs -v -z -f $(EXE).tgz *
+
+# Not a target:
+obj_arm/pilot_adc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 obj_arm/mgmt_server.o:
@@ -572,7 +586,7 @@ obj_arm/cpp03_framework/cmd_line.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-pilot_server.x86: obj_x86/sim_server.o obj_x86/pilot_server.o obj_x86/polling_thread.o obj_x86/mgmt_server.o obj_x86/globals.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/cansock.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
+pilot_server.x86: obj_x86/sim_server.o obj_x86/pilot_server.o obj_x86/polling_thread.o obj_x86/mgmt_server.o obj_x86/globals.o obj_x86/pilot_adc.o obj_x86/main.o obj_x86/cpp03_framework/mstimer.o obj_x86/cpp03_framework/config_file.o obj_x86/cpp03_framework/cansock.o obj_x86/cpp03_framework/udpsock.o obj_x86/cpp03_framework/netsock.o obj_x86/cpp03_framework/cmd_line.o obj_x86/cpp03_framework/serial_port.o obj_x86/cpp03_framework/cthread.o obj_x86/cpp03_framework/netutil.o obj_x86/cpp_server/cmd_server_base.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -583,6 +597,7 @@ pilot_server.x86: obj_x86/sim_server.o obj_x86/pilot_server.o obj_x86/polling_th
 obj_x86:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
+ 
 #  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
@@ -605,7 +620,6 @@ obj_x86:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/13=8%
- 
 #  recipe to execute (from 'makefile', line 177):
 	@for subdir in $(SUBDIRS); do \
 	    mkdir -p -m 777 $(X86_OBJ_DIR)/$$subdir ;\
@@ -660,19 +674,19 @@ obj_arm/cpp03_framework/netsock.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=47/1024=5%, Rehash=0, Collisions=3/104=3%
+# Load=49/1024=5%, Rehash=0, Collisions=3/108=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 95 / storage = 1658 B / avg = 17 B
-# current buf: size = 8162 B / used = 1658 B / count = 95 / avg = 17 B
+# strcache buffers: 1 (0) / strings = 99 / storage = 1724 B / avg = 17 B
+# current buf: size = 8162 B / used = 1724 B / count = 99 / avg = 17 B
 
-# strcache performance: lookups = 138 / hit rate = 31%
+# strcache performance: lookups = 142 / hit rate = 30%
 # hash-table stats:
-# Load=95/8192=1%, Rehash=0, Collisions=5/138=4%
-# Finished Make data base on Fri Sep  2 20:29:37 2022
+# Load=99/8192=1%, Rehash=0, Collisions=7/142=5%
+# Finished Make data base on Mon Sep 12 21:15:01 2022
 
  
