@@ -16,7 +16,7 @@ EXE = pilot_server
 # This is a list of directories that have compilable code in them.  If there
 # are no subdirectories, this line is must SUBDIRS = .
 #-----------------------------------------------------------------------------
-SUBDIRS = . cpp03_framework cpp_server
+SUBDIRS = . cpp_server
 
 
 #-----------------------------------------------------------------------------
@@ -47,7 +47,7 @@ CXXFLAGS =	\
 #-----------------------------------------------------------------------------
 # Link options
 #-----------------------------------------------------------------------------
-LINK_FLAGS = -pthread -lm -lrt
+LINK_FLAGS = -Lcpp03_framework -lcpp03_framework_x86 -pthread -lm -lrt
 
 
 #-----------------------------------------------------------------------------
@@ -140,7 +140,7 @@ $(ARM_OBJ_DIR)/%.o : %.c
 # This rule builds the x86 executable from the object files
 #-----------------------------------------------------------------------------
 $(EXE).x86 : $(X86_OBJS)
-	$(X86_CXX) -m$(X86_TYPE) $(LINK_FLAGS) -o $@ $(X86_OBJS)
+	$(X86_CXX) -m$(X86_TYPE) -o $@ $(X86_OBJS) $(LINK_FLAGS)
 	$(X86_STRIP) $(EXE).x86
 
 
